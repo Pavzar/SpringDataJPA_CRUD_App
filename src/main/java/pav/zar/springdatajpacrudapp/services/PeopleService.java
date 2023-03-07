@@ -3,6 +3,7 @@ package pav.zar.springdatajpacrudapp.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pav.zar.springdatajpacrudapp.models.Mood;
 import pav.zar.springdatajpacrudapp.models.Person;
 import pav.zar.springdatajpacrudapp.repositories.PeopleRepository;
 
@@ -32,6 +33,7 @@ public class PeopleService {
 
     @Transactional
     public void save(Person person) {
+        person.setMood(Mood.CALM);
         person.setCreatedAt(new Date());
         peopleRepository.save(person);
     }
